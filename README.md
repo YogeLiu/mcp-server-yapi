@@ -26,39 +26,17 @@ mcp-server-yapi 是一个为 [YApi](https://github.com/YMFE/yapi) 设计的MCP�
 
 ```bash
 # 克隆仓库
-git clone https://github.com/your-repo/mcp-server-yapi.git
+git clone https://github.com/kales0202/mcp-server-yapi.git
 
 # 进入项目目录
 cd mcp-server-yapi
 
 # 安装依赖
 npm install
+
+# 编译生成dist/index.js
+npm run build
 ```
-
-### 3. 配置
-
-在项目根目录创建一个 `.env` 文件，并填入你的YApi配置信息。你可以从 `.env.example` (如果存在) 文件复制模板。
-
-```env
-# 你的YApi服务器地址
-YAPI_BASE_URL=https://yapi.your-company.com
-# 你的YApi项目token
-YAPI_TOKEN=your_yapi_project_token
-```
-> **提示**: 你需要先安装一个能加载 `.env` 文件的库，如 `dotenv`，并在启动脚本中引入。一个更简单的方式是直接在命令行中设置环境变量。
-
-### 4. 启动服务
-
-- **开发模式** (带热重载和详细日志):
-  ```bash
-  npm run dev
-  ```
-
-- **生产模式**:
-  ```bash
-  npm start
-  ```
-当你在终端看到类似 `MCP Server is running` 的输出时，代表服务已成功启动。
 
 ## 🤖 与AI Agent结合
 
@@ -71,7 +49,11 @@ YAPI_TOKEN=your_yapi_project_token
   "mcpServers": {
     "mcp-server-yapi": {
       "command": "node",
-      "args": ["/absolute/path/to/your/mcp-server-yapi/dist/index.js"]
+      "args": ["/absolute/path/to/your/mcp-server-yapi/dist/index.js"],
+      "env": {
+        "YAPI_BASE_URL": "YAPI服务地址",
+        "YAPI_TOKEN": "YAPI的项目TOKEN，在“项目->设置->toekn配置”中可以找到此token"
+      }
     }
   }
 }
@@ -90,5 +72,5 @@ YAPI_TOKEN=your_yapi_project_token
 - `add_category`: 新增接口分类
 - `add_interface`: 新增接口
 - `update_interface`: 更新接口
-- `save_interface`: 保存或更新接口（智能判断）
+- `save_interface`: 保存或更新接口
 - `import_data`: 导入外部接口数据
