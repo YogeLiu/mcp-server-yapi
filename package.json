@@ -1,0 +1,40 @@
+{
+  "name": "mcp-server-yapi",
+  "version": "0.0.1",
+  "description": "mcp-server-yapi MCP server",
+  "type": "module",
+  "bin": {
+    "mcp-server-yapi": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && mcp-build",
+    "watch": "tsc --watch",
+    "dev": "npm run build && cross-env MCP_DEBUG_CONSOLE=true node dist/index.js",
+    "start": "npm run build && node dist/index.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "validate": "mcp validate"
+  },
+  "dependencies": {
+    "@types/node-fetch": "^2.6.12",
+    "mcp-framework": "^0.2.2",
+    "node-fetch": "^2.7.0",
+    "reflect-metadata": "^0.2.2",
+    "tsyringe": "^4.10.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.8",
+    "@types/node": "^20.11.24",
+    "cross-env": "^7.0.3",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.19.0"
+  }
+}
