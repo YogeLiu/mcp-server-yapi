@@ -3,7 +3,8 @@ import { yapiPost } from "../utils/yapi-request.js";
 import { INTERFACE_ENDPOINTS } from "../constants/yapi-endpoints.js";
 import { InterfaceSchema } from "./schemas/interface-schemas.js";
 
-const SaveInterfaceSchema = InterfaceSchema.pick({
+const UpInterfaceSchema = InterfaceSchema.pick({
+  id: true,
   api_opened: true,
   catid: true,
   desc: true,
@@ -38,15 +39,15 @@ const SaveInterfaceSchema = InterfaceSchema.pick({
   tag: true,
 });
 
-class SaveInterface extends MCPTool {
-  name = "save_interface";
+class UpInterface extends MCPTool {
+  name = "up_interface";
   description =
-    "新增或者更新接口 - 相比较于AddInterface和UpdateInterface，更推荐使用这个接口";
-  schema = SaveInterfaceSchema;
+    "更新YAPI接口的详细信息，支持修改名称、描述、请求体和响应体Schema。建议优先使用save_interface";
+  schema = UpInterfaceSchema;
 
   async execute(input: MCPInput<this>) {
-    return await yapiPost(INTERFACE_ENDPOINTS.SAVE, input);
+    return await yapiPost(INTERFACE_ENDPOINTS.UP, input);
   }
 }
 
-export default SaveInterface;
+export default UpInterface;
