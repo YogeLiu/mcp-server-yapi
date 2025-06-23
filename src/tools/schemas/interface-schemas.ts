@@ -98,27 +98,24 @@ export const InterfaceSchema = z.object({
 
   // 导入数据相关
   type: z
-    .enum(["swagger", "postman", "har", "json"])
+    .enum(["swagger"])
     .describe(
-      "导入数据类型 - swagger(OpenAPI规范)、postman(Postman集合)、har(HTTP Archive)、json(通用JSON格式)"
+      "导入方式 - 仅支持swagger"
     ),
-  data_type: z
-    .enum(["json", "url"])
-    .describe("数据格式 - json(直接提供JSON数据)或url(提供数据URL链接)"),
   merge: z
     .enum(["normal", "good", "merge"])
-    .describe("合并策略 - normal(普通导入)、good(智能合并)、merge(强制合并)"),
+    .describe("数据同步方式 - normal(普通导入)、good(智能合并)、merge(强制合并)"),
   json: z
     .string()
     .optional()
     .describe(
-      "JSON数据（可选）- 当data_type为json时必需，提供要导入的完整JSON数据"
+      "JSON数据（可选）- 类型为序列化后的字符串，请勿传递 object"
     ),
   url: z
     .string()
     .url()
     .optional()
     .describe(
-      "数据URL（可选）- 当data_type为url时必需，提供可访问的数据文件URL地址"
+      "数据URL（可选）- 如果存在该参数，将会优先通过 url 方式获取数据"
     ),
 });

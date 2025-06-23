@@ -1,23 +1,21 @@
-import { MCPTool, MCPInput } from 'mcp-framework';
-import { yapiGet } from '../utils/yapi-request.js';
-import { INTERFACE_ENDPOINTS } from '../constants/yapi-endpoints.js';
-import { InterfaceSchema } from './schemas/interface-schemas.js';
+import { MCPTool, MCPInput } from "mcp-framework";
+import { yapiGet } from "../utils/yapi-request.js";
+import { INTERFACE_ENDPOINTS } from "../constants/yapi-endpoints.js";
+import { InterfaceSchema } from "./schemas/interface-schemas.js";
 
-const ListCatSchema = InterfaceSchema
-  .pick({
-    catid: true,
-    status: true,
-    page: true,
-    limit: true
-  })
-  .partial({
-    status: true,
-    page: true,
-    limit: true
-  });
+const ListCatSchema = InterfaceSchema.pick({
+  catid: true,
+  status: true,
+  page: true,
+  limit: true,
+}).partial({
+  status: true,
+  page: true,
+  limit: true,
+});
 
 class ListCat extends MCPTool {
-  name = 'list_cat';
+  name = "list_cat";
   description = "获取某个分类下接口列表";
   schema = ListCatSchema;
 
@@ -26,4 +24,4 @@ class ListCat extends MCPTool {
   }
 }
 
-export default ListCat; 
+export default ListCat;

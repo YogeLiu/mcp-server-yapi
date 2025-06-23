@@ -1,13 +1,14 @@
-import { MCPTool, MCPInput } from 'mcp-framework';
-import { yapiGet } from '../utils/yapi-request.js';
-import { INTERFACE_ENDPOINTS } from '../constants/yapi-endpoints.js';
-import { InterfaceSchema } from './schemas/interface-schemas.js';
+import { MCPTool, MCPInput } from "mcp-framework";
+import { yapiGet } from "../utils/yapi-request.js";
+import { INTERFACE_ENDPOINTS } from "../constants/yapi-endpoints.js";
+import { InterfaceSchema } from "./schemas/interface-schemas.js";
 
 const GetInterfaceSchema = InterfaceSchema.pick({ id: true });
 
 class GetInterface extends MCPTool {
-  name = 'get_interface';
-  description = "获取接口数据 - 获取指定YAPI接口的详细信息，包括请求参数、响应格式、JSON Schema等所有配置";
+  name = "get_interface";
+  description =
+    "获取接口数据 - 获取指定YAPI接口的详细信息，包括请求参数、响应格式、JSON Schema等所有配置";
   schema = GetInterfaceSchema;
 
   async execute(input: MCPInput<this>) {
@@ -15,4 +16,4 @@ class GetInterface extends MCPTool {
   }
 }
 
-export default GetInterface; 
+export default GetInterface;
