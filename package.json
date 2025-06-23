@@ -1,6 +1,6 @@
 {
   "name": "mcp-server-yapi",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "YAPI MCP server",
   "type": "module",
   "bin": {
