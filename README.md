@@ -58,9 +58,9 @@ npm run build
 
 2. 与 AI Agent 结合
 
-你可以将此服务集成到支持 MCP 协议的 AI Agent 客户端中。
+你可以将此服务集成到支持 MCP 协议的 AI Agent 客户端中，将以下配置添加到你的客户端配置文件中
 
-将以下配置添加到你的客户端配置文件中：
+YAPI的项目TOKEN：在"项目->设置->toekn 配置"中
 
 ```json
 {
@@ -70,7 +70,7 @@ npm run build
       "args": ["/absolute/path/to/your/mcp-server-yapi/dist/index.js"],
       "env": {
         "YAPI_BASE_URL": "YAPI服务地址",
-        "YAPI_TOKEN": "YAPI的项目TOKEN，在"项目->设置->toekn配置"中可以找到此token"
+        "YAPI_TOKEN": "项目TOKEN"
       }
     }
   }
