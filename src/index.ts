@@ -29,19 +29,15 @@ async function main() {
 
     // 2. 初始化MCP服务器（自动发现工具）
     logger.info("🔍 初始化MCP服务器...");
-    const server = new MCPServer({
-      name: "mcp-server-yapi", // Default: package.json name or "unnamed-mcp-server"
-      version: "0.0.1", // Default: package.json version or "0.0.0"
-    });
+    const server = new MCPServer();
 
     // 3. 启动服务器
     logger.info("🎯 启动MCP服务器...");
     await server.start();
-    logger.info("🎉 MCP服务器启动成功！");
 
     // Handle shutdown
     process.on("SIGINT", async () => {
-      logger.info("📢 MCP服务接收到关闭通知...")
+      logger.info("📢 MCP服务接收到关闭通知...");
       await server.stop();
       logger.info("👋 MCP服务已关闭");
     });
