@@ -15,8 +15,7 @@ const ListInterfaceSchema = InterfaceSchema.pick({
 
 class ListInterface extends MCPTool {
   name = "list_interface";
-  description =
-    "获取YAPI项目的接口列表，支持分页和过滤查询。需要项目ID，可按状态、标签过滤，支持分页浏览";
+  description = "获取接口列表数据";
   schema = ListInterfaceSchema;
 
   async execute(input: MCPInput<this>) {

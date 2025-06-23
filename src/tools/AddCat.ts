@@ -13,7 +13,7 @@ const AddCatSchema = InterfaceSchema.pick({
 
 class AddCat extends MCPTool {
   name = "add_cat";
-  description = "新增接口分类 - 在指定YAPI项目中创建新的接口分类";
+  description = "新增接口分类";
   schema = AddCatSchema;
 
   async execute(input: MCPInput<this>) {

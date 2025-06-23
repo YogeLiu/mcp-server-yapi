@@ -40,8 +40,7 @@ const AddInterfaceSchema = InterfaceSchema.pick({
 
 class AddInterface extends MCPTool {
   name = "add_interface";
-  description =
-    "在YAPI中创建新的API接口。需要提供接口名称、路径、HTTP方法、项目ID和分类ID";
+  description = "新增接口";
   schema = AddInterfaceSchema;
 
   async execute(input: MCPInput<this>) {

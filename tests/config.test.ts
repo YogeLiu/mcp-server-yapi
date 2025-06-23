@@ -1,4 +1,13 @@
-import { YapiConfig, loadConfig, validateConfig } from '../src/config';
+import { YapiConfig, loadConfig, validateConfig, initializeConfig } from '../src/config.js';
+
+jest.mock('mcp-framework', () => ({
+  logger: {
+    debug: jest.fn(),
+    info: jest.fn(),
+    warn: jest.fn(),
+    error: jest.fn(),
+  },
+}));
 
 describe('配置模块 (config.ts)', () => {
   // 保存原始环境变量

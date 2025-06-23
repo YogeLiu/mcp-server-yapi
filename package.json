@@ -1,7 +1,7 @@
 {
   "name": "mcp-server-yapi",
-  "version": "0.0.1",
-  "description": "mcp-server-yapi MCP server",
+  "version": "0.0.2",
+  "description": "YAPI MCP server",
   "type": "module",
   "bin": {
     "mcp-server-yapi": "./dist/index.js"
