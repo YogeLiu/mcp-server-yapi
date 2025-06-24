@@ -33,8 +33,6 @@ async function yapiRequest<T = any>(
   url: string,
   options: any
 ): Promise<YapiResponse<T>> {
-  const config = getConfig();
-
   try {
     logger.debug(`[YAPI] 请求URL: ${url}`);
 
@@ -44,7 +42,6 @@ async function yapiRequest<T = any>(
         ...COMMON_HEADERS,
         ...options.headers,
       },
-      timeout: config.timeout,
     });
 
     if (!response.ok) {

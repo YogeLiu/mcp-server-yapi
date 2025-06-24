@@ -28,15 +28,11 @@ describe('配置模块 (config.ts)', () => {
     test('应该正确定义配置接口', () => {
       const config: YapiConfig = {
         baseUrl: 'http://test.com',
-        token: 'test-token',
-        timeout: 10000,
-        debug: false
+        token: 'test-token'
       };
 
       expect(config.baseUrl).toBe('http://test.com');
       expect(config.token).toBe('test-token');
-      expect(config.timeout).toBe(10000);
-      expect(config.debug).toBe(false);
     });
   });
 
@@ -45,26 +41,11 @@ describe('配置模块 (config.ts)', () => {
       // 设置测试环境变量
       process.env.YAPI_BASE_URL = 'http://test-yapi.com';
       process.env.YAPI_TOKEN = 'test-token-123';
-      process.env.YAPI_TIMEOUT = '5000';
-      process.env.DEBUG = 'true';
 
       const config = loadConfig();
 
       expect(config.baseUrl).toBe('http://test-yapi.com');
       expect(config.token).toBe('test-token-123');
-      expect(config.timeout).toBe(5000);
-      expect(config.debug).toBe(true);
-    });
-
-    test('应该使用默认值', () => {
-      // 只设置必需的环境变量
-      process.env.YAPI_BASE_URL = 'http://test.com';
-      process.env.YAPI_TOKEN = 'token';
-
-      const config = loadConfig();
-
-      expect(config.timeout).toBe(10000); // 默认值
-      expect(config.debug).toBe(false); // 默认值
     });
 
     test('应该移除URL末尾的斜杠', () => {
@@ -104,9 +85,7 @@ describe('配置模块 (config.ts)', () => {
     test('应该验证有效配置', () => {
       const validConfig: YapiConfig = {
         baseUrl: 'http://test.com',
-        token: 'test-token',
-        timeout: 10000,
-        debug: false
+        token: 'test-token'
       };
 
       expect(validateConfig(validConfig)).toBe(true);
@@ -114,10 +93,9 @@ describe('配置模块 (config.ts)', () => {
 
     test('应该拒绝无效配置', () => {
       const invalidConfigs = [
-        { baseUrl: '', token: 'token', timeout: 10000, debug: false },
-        { baseUrl: 'http://test.com', token: '', timeout: 10000, debug: false },
-        { baseUrl: 'http://test.com', token: 'token', timeout: 0, debug: false },
-        { baseUrl: 'http://test.com', token: 'token', timeout: -1, debug: false }
+        { baseUrl: '', token: 'token'},
+        { baseUrl: 'http://test.com', token: ''},
+        { baseUrl: 'http://test.com', token: 'token'},
       ];
 
       invalidConfigs.forEach(config => {

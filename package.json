@@ -1,6 +1,6 @@
 {
   "name": "mcp-server-yapi",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "YAPI MCP server",
   "type": "module",
   "author": "kales0202",
@@ -15,7 +15,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc && mcp-build",
+    "build": "rimraf dist && tsc && mcp-build",
     "watch": "tsc --watch",
     "dev": "npm run build && cross-env MCP_DEBUG_CONSOLE=true node dist/index.js",
     "start": "npm run build && node dist/index.js",
@@ -34,6 +34,7 @@
     "@types/node": "^20.11.24",
     "cross-env": "^7.0.3",
     "jest": "^29.7.0",
+    "rimraf": "^6.0.1",
     "ts-jest": "^29.1.1",
     "typescript": "^5.3.3"
   },

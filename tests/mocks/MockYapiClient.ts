@@ -238,8 +238,6 @@ export function createMockYapiClient(
   const defaultConfig: YapiConfig = {
     baseUrl: "http://mock-yapi.com",
     token: "mock-token-123",
-    timeout: 5000,
-    debug: false,
     ...config,
   };
 

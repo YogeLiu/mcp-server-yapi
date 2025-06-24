@@ -1,6 +1,6 @@
 # mcp-server-yapi
 
-[![version](https://img.shields.io/badge/version-0.0.4-blue.svg)](https://github.com/kales0202/mcp-server-yapi.git)
+[![version](https://img.shields.io/badge/version-0.0.5-blue.svg)](https://github.com/kales0202/mcp-server-yapi.git)
 
 mcp-server-yapi 是一个为 [YApi](https://github.com/YMFE/yapi) 设计的 MCP 服务器。它将 YApi的常用功能封装为一系列工具，允许大语言模型（LLM）通过自然语言与你的 YApi 平台进行交互，实现接口管理自动化。
 
@@ -29,7 +29,8 @@ YAPI的项目TOKEN：在"项目->设置->toekn 配置"中
       ],
       "env": {
         "YAPI_BASE_URL": "YAPI服务地址",
-        "YAPI_TOKEN": "项目TOKEN"
+        "YAPI_TOKEN": "项目TOKEN",
+        "MCP_DEBUG_CONSOLE": "false"
       }
     }
   }
@@ -70,7 +71,8 @@ YAPI的项目TOKEN：在"项目->设置->toekn 配置"中
       "args": ["/absolute/path/to/your/mcp-server-yapi/dist/index.js"],
       "env": {
         "YAPI_BASE_URL": "YAPI服务地址",
-        "YAPI_TOKEN": "项目TOKEN"
+        "YAPI_TOKEN": "项目TOKEN",
+        "MCP_DEBUG_CONSOLE": "false"
       }
     }
   }
