@@ -7,8 +7,7 @@ const GetInterfaceSchema = InterfaceSchema.pick({ id: true });
 
 class GetInterface extends MCPTool {
   name = "get_interface";
-  description =
-    "获取接口数据 - 获取指定YAPI接口的详细信息，包括请求参数、响应格式、JSON Schema等所有配置";
+  description = "获取接口数据";
   schema = GetInterfaceSchema;
 
   async execute(input: MCPInput<this>) {

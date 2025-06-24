@@ -35,7 +35,7 @@ export const InterfaceSchema = z.object({
     .array(
       z.object({
         name: z.string().describe("参数名称"),
-        value: z.enum(["0", "1"]).describe("参数值"),
+        value: z.string().describe("参数值"),
         example: z.string().describe("参数示例"),
         desc: z.string().describe("备注"),
       })

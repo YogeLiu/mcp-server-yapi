@@ -41,7 +41,7 @@ const SaveInterfaceSchema = InterfaceSchema.pick({
 class SaveInterface extends MCPTool {
   name = "save_interface";
   description =
-    "新增或者更新接口 - 相比较于AddInterface和UpdateInterface，更推荐使用这个接口";
+    "新增或者更新接口 - 相比较于AddInterface和UpdateInterface，更推荐使用这个接口，path参数是数据唯一标识，如果存在则更新，不存在则新增";
   schema = SaveInterfaceSchema;
 
   async execute(input: MCPInput<this>) {

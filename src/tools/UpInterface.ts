@@ -41,8 +41,7 @@ const UpInterfaceSchema = InterfaceSchema.pick({
 
 class UpInterface extends MCPTool {
   name = "up_interface";
-  description =
-    "更新YAPI接口的详细信息，支持修改名称、描述、请求体和响应体Schema。建议优先使用save_interface";
+  description = "更新接口 - 建议优先使用save_interface";
   schema = UpInterfaceSchema;
 
   async execute(input: MCPInput<this>) {
