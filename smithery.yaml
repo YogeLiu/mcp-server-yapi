@@ -1,0 +1,37 @@
+# Smithery configuration file: https://smithery.ai/docs/build/project-config
+
+startCommand:
+  type: stdio
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({
+      command: "node",
+      args: ["dist/index.js"],
+      env: {
+        YAPI_BASE_URL: config.yapiBaseUrl,
+        YAPI_TOKEN: config.yapiToken,
+        MCP_DEBUG_CONSOLE: config.debugConsole ? "true" : "false"
+      }
+    })
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - yapiBaseUrl
+      - yapiToken
+    properties:
+      yapiBaseUrl:
+        type: string
+        description: YAPI服务器基础URL (必须以 http/https 开头)
+      yapiToken:
+        type: string
+        description: YAPI项目访问令牌
+      debugConsole:
+        type: boolean
+        default: false
+        description: 是否启用调试日志 (MCP_DEBUG_CONSOLE) 默认 false
+  exampleConfig:
+    yapiBaseUrl: https://yapi.example.com
+    yapiToken: YOUR_YAPI_TOKEN
+    debugConsole: false
