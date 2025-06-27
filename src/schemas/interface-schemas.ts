@@ -6,7 +6,7 @@ import { z } from "zod";
  */
 export const InterfaceSchema = z.object({
   // 基础标识
-  id: z.number().int().positive().describe("接口ID"),
+  id: z.number().int().describe("接口ID"),
 
   // 基础信息
   title: z.string().min(1).max(100).describe("接口名称，长度1-100字符"),
@@ -16,8 +16,8 @@ export const InterfaceSchema = z.object({
     .describe("HTTP方法"),
 
   // 归属信息
-  project_id: z.number().int().positive().describe("接口所属的YAPI项目ID"),
-  catid: z.number().int().positive().describe("接口所属的分类ID"),
+  project_id: z.number().int().describe("接口所属的YAPI项目ID"),
+  catid: z.number().int().describe("接口所属的分类ID"),
 
   // 状态和描述
   status: z
