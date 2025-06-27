@@ -1,6 +1,7 @@
 # mcp-server-yapi
 
 [![version](https://img.shields.io/badge/version-0.0.6-blue.svg)](https://github.com/kales0202/mcp-server-yapi.git)
+[![smithery badge](https://smithery.ai/badge/mcp-server-yapi)](https://smithery.ai/server/mcp-server-yapi)
 
 mcp-server-yapi 是一个为 [YApi](https://github.com/YMFE/yapi) 设计的 MCP 服务器。它将 YApi的常用功能封装为一系列工具，允许大语言模型（LLM）通过自然语言与你的 YApi 平台进行交互，实现接口管理自动化。
 
