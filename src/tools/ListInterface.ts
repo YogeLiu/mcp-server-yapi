@@ -2,7 +2,7 @@ import { MCPTool, MCPInput } from "mcp-framework";
 import { z } from "zod";
 import { yapiGet } from "../utils/yapi-request.js";
 import { INTERFACE_ENDPOINTS } from "../constants/yapi-endpoints.js";
-import { InterfaceSchema } from "./schemas/interface-schemas.js";
+import { InterfaceSchema } from "../schemas/interface-schemas.js";
 
 const ListInterfaceSchema = InterfaceSchema.pick({
   project_id: true,

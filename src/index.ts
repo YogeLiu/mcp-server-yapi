@@ -15,11 +15,14 @@ import { initializeConfig } from "./config.js";
  */
 async function main() {
   try {
-    // 动态确定项目根目录并切换
-    const currentDir = path.dirname(fileURLToPath(import.meta.url));
-    const projectRoot = path.resolve(currentDir, "..");
-    process.chdir(projectRoot);
+    // 定义 __filename 和 __dirname（ES modules 需要）
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
 
+    // 输出版本信息（从环境变量或默认值获取）
+    const name = process.env.npm_package_name || "mcp-server-yapi";
+    const version = process.env.npm_package_version || "unknown";
+    logger.info(`📦 MCP Server 版本: ${name}@${version}`);
     logger.info("🚀 MCP Server 启动中...");
 
     // 1. 加载和验证配置（只在启动时执行一次）
@@ -29,7 +32,9 @@ async function main() {
 
     // 2. 初始化MCP服务器（自动发现工具）
     logger.info("🔍 初始化MCP服务器...");
-    const server = new MCPServer();
+    const server = new MCPServer({
+      basePath: __dirname,
+    });
 
     // 3. 启动服务器
     logger.info("🎯 启动MCP服务器...");

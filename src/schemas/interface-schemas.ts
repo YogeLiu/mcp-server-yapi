@@ -97,25 +97,21 @@ export const InterfaceSchema = z.object({
   name: z.string().min(1).max(50).describe("名称 - 长度1-50字符"),
 
   // 导入数据相关
-  type: z
-    .enum(["swagger"])
-    .describe(
-      "导入方式 - 仅支持swagger"
-    ),
+  type: z.enum(["swagger"]).describe("导入方式 - 仅支持swagger"),
   merge: z
     .enum(["normal", "good", "merge"])
-    .describe("数据同步方式 - normal(普通导入)、good(智能合并)、merge(强制合并)"),
+    .describe(
+      "数据同步方式 - normal(普通导入)、good(智能合并)、merge(强制合并)"
+    ),
   json: z
     .string()
     .optional()
-    .describe(
-      "JSON数据（可选）- 类型为序列化后的字符串，请勿传递 object"
-    ),
+    .describe("JSON数据（可选）- 类型为序列化后的字符串，请勿传递 object"),
   url: z
     .string()
     .url()
     .optional()
-    .describe(
-      "数据URL（可选）- 如果存在该参数，将会优先通过 url 方式获取数据"
-    ),
+    .describe("数据URL（可选）- 如果存在该参数，将会优先通过 url 方式获取数据"),
 });
+
+export default InterfaceSchema;

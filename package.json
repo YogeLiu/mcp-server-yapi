@@ -1,6 +1,6 @@
 {
   "name": "mcp-server-yapi",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "YAPI MCP server",
   "type": "module",
   "author": "kales0202",
@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@types/node-fetch": "^2.6.12",
-    "mcp-framework": "^0.2.2",
+    "mcp-framework": "^0.2.15",
     "node-fetch": "^2.7.0",
     "zod": "^3.22.4"
   },
