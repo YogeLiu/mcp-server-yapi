@@ -1,9 +1,9 @@
 # mcp-server-yapi
 
-[![version](https://img.shields.io/badge/version-0.0.9-blue.svg)](https://github.com/kales0202/mcp-server-yapi.git)
-[![smithery badge](https://smithery.ai/badge/mcp-server-yapi)](https://smithery.ai/server/mcp-server-yapi)
+[![version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/kales0202/mcp-server-yapi.git)
+[![smithery badge](https://smithery.ai/badge/mcp-server-yapi)](https://smithery.ai/server/@kales0202/mcp-server-yapi)
 
-mcp-server-yapi 是一个为 [YApi](https://github.com/YMFE/yapi) 设计的 MCP 服务器。它将 YApi的常用功能封装为一系列工具，允许大语言模型（LLM）通过自然语言与你的 YApi 平台进行交互，实现接口管理自动化。
+mcp-server-yapi 是一个为 [YApi](https://github.com/YMFE/yapi) 设计的 MCP 服务器。它将 YApi 的常用功能封装为一系列工具，允许大语言模型（LLM）通过自然语言与你的 YApi 平台进行交互，实现接口管理自动化。
 
 ## ✨ 核心功能
 
@@ -16,20 +16,25 @@ mcp-server-yapi 是一个为 [YApi](https://github.com/YMFE/yapi) 设计的 MCP 
 - **接口列表**: 获取项目或分类下的接口列表。
 
 ## ⚙️ 客户端配置
+### 安装要求
 
-YAPI的项目TOKEN：在"项目->设置->toekn 配置"中
+- Node.js >= v18.0.0
+- Cursor, Windsurf, Claude Desktop 或者其它支持 MCP 协议的客户端
+
+### 配置示例
+
+YAPI 的项目 TOKEN：在"项目->设置->token 配置"中
+
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=mcp-server-yapi&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIm1jcC1zZXJ2ZXIteWFwaSJdLCJlbnYiOnsiWUFQSV9CQVNFX1VSTCI6IllBUEnmnI3liqHlnLDlnYAiLCJZQVBJX1RPS0VOIjoi6aG555uuVE9LRU4iLCJNQ1BfREVCVUdfQ09OU09MRSI6ImZhbHNlIn19)
 
 ```json
 {
   "mcpServers": {
     "mcp-server-yapi": {
       "command": "npx",
-      "args": [
-        "-y",
-        "mcp-server-yapi"
-      ],
+      "args": ["-y", "mcp-server-yapi"],
       "env": {
-        "YAPI_BASE_URL": "YAPI服务地址",
+        "YAPI_BASE_URL": "YAPI服务地址，例：https://xxx.yyy.com",
         "YAPI_TOKEN": "项目TOKEN",
         "MCP_DEBUG_CONSOLE": "false"
       }
@@ -62,7 +67,7 @@ npm run build
 
 你可以将此服务集成到支持 MCP 协议的 AI Agent 客户端中，将以下配置添加到你的客户端配置文件中
 
-YAPI的项目TOKEN：在"项目->设置->toekn 配置"中
+YAPI 的项目 TOKEN：在"项目->设置->toekn 配置"中
 
 ```json
 {

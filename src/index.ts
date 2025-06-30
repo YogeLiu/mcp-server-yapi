@@ -26,7 +26,6 @@ async function main() {
     // 1. 加载和验证配置（只在启动时执行一次）
     logger.info("🔧 加载配置...");
     initializeConfig();
-    logger.info("✅ 配置加载成功");
 
     // 2. 初始化MCP服务器（自动发现工具）
     logger.info("🔍 初始化MCP服务器...");
