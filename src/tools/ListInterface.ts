@@ -15,7 +15,7 @@ const ListInterfaceSchema = InterfaceSchema.pick({
 
 class ListInterface extends MCPTool {
   name = "list_interface";
-  description = "获取接口列表数据";
+  description = "Get interface list data";
   schema = ListInterfaceSchema;
 
   async execute(input: MCPInput<this>) {

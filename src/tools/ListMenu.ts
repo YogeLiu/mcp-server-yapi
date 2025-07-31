@@ -8,7 +8,7 @@ const ListMenuSchema = InterfaceSchema.pick({ project_id: true });
 class ListMenu extends MCPTool {
   name = "list_menu";
   description =
-    "获取接口菜单列表 - 以分类为节点、接口为叶子的树形结构展示项目的所有接口";
+    "Get interface menu list - Tree structure with categories as nodes and interfaces as leaves to display all interfaces in the project";
   schema = ListMenuSchema;
 
   async execute(input: MCPInput<this>) {

@@ -6,12 +6,12 @@ import { InterfaceSchema } from "../schemas/interface-schemas.js";
 const GetCategoryMenuSchema = InterfaceSchema.pick({ project_id: true });
 
 /**
- * 获取菜单列表
+ * Get menu list
  */
 class GetCatMenu extends MCPTool {
   name = "get_cat_menu";
   description =
-    "获取菜单列表 - 获取所有接口分类列表，一般用于了解项目结构和获取分类ID";
+    "Get menu list - Get all interface category lists, generally used to understand project structure and get category IDs";
   schema = GetCategoryMenuSchema;
 
   async execute(input: MCPInput<this>) {

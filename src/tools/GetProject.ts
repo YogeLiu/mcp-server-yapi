@@ -3,12 +3,12 @@ import { z } from "zod";
 import { yapiGet } from "../utils/yapi-request.js";
 import { PROJECT_ENDPOINTS } from "../constants/yapi-endpoints.js";
 
-// 无需参数的空Schema
+// Empty Schema with no parameters required
 const GetProjectSchema = z.object({});
 
 class GetProject extends MCPTool {
   name = "get_project";
-  description = "获取项目基本信息";
+  description = "Get project basic information";
   schema = GetProjectSchema;
 
   async execute(_input: MCPInput<this>) {

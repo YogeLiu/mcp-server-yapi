@@ -40,7 +40,7 @@ const AddInterfaceSchema = InterfaceSchema.pick({
 
 class AddInterface extends MCPTool {
   name = "add_interface";
-  description = "新增接口";
+  description = "Add interface";
   schema = AddInterfaceSchema;
 
   async execute(input: MCPInput<this>) {

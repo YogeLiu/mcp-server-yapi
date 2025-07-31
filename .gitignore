@@ -6,3 +6,4 @@ logs
 .idea
 .vscode
 AI_*
+.cursor/mcp.json

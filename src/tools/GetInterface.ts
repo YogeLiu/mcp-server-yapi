@@ -7,7 +7,7 @@ const GetInterfaceSchema = InterfaceSchema.pick({ id: true });
 
 class GetInterface extends MCPTool {
   name = "get_interface";
-  description = "获取接口数据";
+  description = "Get interface data";
   schema = GetInterfaceSchema;
 
   async execute(input: MCPInput<this>) {

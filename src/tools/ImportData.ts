@@ -16,7 +16,7 @@ const ImportDataSchema = InterfaceSchema.pick({
 class ImportData extends MCPTool {
   name = "import_data";
   description =
-    "服务端数据导入 - 从外部数据源批量导入接口到YAPI项目。支持Swagger、Postman、HAR、JSON格式，可通过JSON数据或URL链接导入";
+    "Server-side data import - Batch import interfaces from external data sources to YAPI project. Only supports Swagger, can import through JSON data or URL link";
   schema = ImportDataSchema;
 
   async execute(input: MCPInput<this>) {

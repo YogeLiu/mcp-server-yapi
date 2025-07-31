@@ -16,7 +16,7 @@ const ListCatSchema = InterfaceSchema.pick({
 
 class ListCat extends MCPTool {
   name = "list_cat";
-  description = "获取某个分类下接口列表";
+  description = "Get interface list under a specific category";
   schema = ListCatSchema;
 
   async execute(input: MCPInput<this>) {

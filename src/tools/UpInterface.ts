@@ -41,7 +41,7 @@ const UpInterfaceSchema = InterfaceSchema.pick({
 
 class UpInterface extends MCPTool {
   name = "up_interface";
-  description = "更新接口 - 建议优先使用save_interface";
+  description = "Update interface - It is recommended to prioritize using save_interface";
   schema = UpInterfaceSchema;
 
   async execute(input: MCPInput<this>) {
