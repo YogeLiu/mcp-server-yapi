@@ -1,19 +1,38 @@
 {
-  "name": "mcp-server-yapi",
-  "version": "0.1.2",
-  "description": "YAPI MCP server",
+  "name": "@yogeliu/mcp-server-yapi",
+  "version": "0.2.1",
+  "description": "Enhanced YAPI MCP server with multi-project support and enterprise features",
   "type": "module",
-  "author": "kales0202",
+  "author": "YogeLiu <yogeliu@example.com>",
+  "contributors": [
+    "kales0202 (original author)"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/kales0202/mcp-server-yapi.git"
+    "url": "https://github.com/YogeLiu/mcp-server-yapi.git"
   },
   "bin": {
     "mcp-server-yapi": "./dist/index.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "yapi-projects.example.json",
+    "CHANGELOG.md"
   ],
+  "keywords": [
+    "mcp",
+    "yapi",
+    "api-management",
+    "multi-project",
+    "enterprise",
+    "claude",
+    "mcp-server"
+  ],
+  "homepage": "https://github.com/YogeLiu/mcp-server-yapi#readme",
+  "bugs": {
+    "url": "https://github.com/YogeLiu/mcp-server-yapi/issues"
+  },
+  "license": "MIT",
   "scripts": {
     "build": "rimraf dist && tsc && mcp-build",
     "watch": "tsc --watch",
