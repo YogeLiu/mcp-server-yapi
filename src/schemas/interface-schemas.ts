@@ -1,6 +1,13 @@
 import { z } from "zod";
 
 /**
+ * 项目名参数Schema
+ */
+export const ProjectNameSchema = z.object({
+  project_name: z.string().optional().describe("项目名称，如果不指定则使用默认项目"),
+});
+
+/**
  * Complete field Schema for interface operations
  * Contains all possible interface fields and query parameters, each tool picks as needed
  */

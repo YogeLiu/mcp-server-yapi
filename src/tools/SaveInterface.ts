@@ -1,7 +1,7 @@
 import { MCPTool, MCPInput } from "mcp-framework";
 import { yapiPost } from "../utils/yapi-request.js";
 import { INTERFACE_ENDPOINTS } from "../constants/yapi-endpoints.js";
-import { InterfaceSchema } from "../schemas/interface-schemas.js";
+import { InterfaceSchema, ProjectNameSchema } from "../schemas/interface-schemas.js";
 
 const SaveInterfaceSchema = InterfaceSchema.pick({
   api_opened: true,
@@ -36,7 +36,7 @@ const SaveInterfaceSchema = InterfaceSchema.pick({
   res_body_is_json_schema: true,
   res_body_type: true,
   tag: true,
-});
+}).merge(ProjectNameSchema);
 
 class SaveInterface extends MCPTool {
   name = "save_interface";
@@ -45,7 +45,8 @@ class SaveInterface extends MCPTool {
   schema = SaveInterfaceSchema;
 
   async execute(input: MCPInput<this>) {
-    return await yapiPost(INTERFACE_ENDPOINTS.SAVE, input);
+    const { project_name, ...apiParams } = input;
+    return await yapiPost(INTERFACE_ENDPOINTS.SAVE, apiParams, project_name);
   }
 }
 

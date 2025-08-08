@@ -16,6 +16,7 @@ mcp-server-yapi 是一个为 [YApi](https://github.com/YMFE/yapi) 设计的 MCP 
 - **接口列表**: 获取项目或分类下的接口列表。
 
 ## ⚙️ 客户端配置
+
 ### 安装要求
 
 - Node.js >= v18.0.0
@@ -25,7 +26,7 @@ mcp-server-yapi 是一个为 [YApi](https://github.com/YMFE/yapi) 设计的 MCP 
 
 YAPI 的项目 TOKEN：在"项目->设置->token 配置"中
 
-[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=mcp-server-yapi&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIm1jcC1zZXJ2ZXIteWFwaSJdLCJlbnYiOnsiWUFQSV9CQVNFX1VSTCI6IllBUEnmnI3liqHlnLDlnYAiLCJZQVBJX1RPS0VOIjoi6aG555uuVE9LRU4iLCJNQ1BfREVCVUdfQ09OU09MRSI6ImZhbHNlIn19)
+#### 单项目配置（向后兼容）
 
 ```json
 {
@@ -36,6 +37,58 @@ YAPI 的项目 TOKEN：在"项目->设置->token 配置"中
       "env": {
         "YAPI_BASE_URL": "YAPI服务地址，例：https://xxx.yyy.com",
         "YAPI_TOKEN": "项目TOKEN",
+        "MCP_DEBUG_CONSOLE": "false"
+      }
+    }
+  }
+}
+```
+
+#### 多项目配置（推荐）
+
+**方式1：使用配置文件（推荐）**
+
+1. 创建 `yapi-projects.json` 配置文件：
+```json
+{
+  "go_equity_package": {
+    "baseUrl": "https://fed.qschou.com",
+    "token": "your_project_token_here"
+  },
+  "test_project": {
+    "baseUrl": "https://test.example.com", 
+    "token": "test_project_token"
+  }
+}
+```
+
+2. MCP客户端配置：
+```json
+{
+  "mcpServers": {
+    "mcp-server-yapi": {
+      "command": "npx",
+      "args": ["-y", "mcp-server-yapi"],
+      "env": {
+        "YAPI_PROJECTS_FILE": "./yapi-projects.json",
+        "YAPI_DEFAULT_PROJECT": "go_equity_package",
+        "MCP_DEBUG_CONSOLE": "false"
+      }
+    }
+  }
+}
+```
+
+**方式2：使用环境变量（不推荐）**
+```json
+{
+  "mcpServers": {
+    "mcp-server-yapi": {
+      "command": "npx",
+      "args": ["-y", "mcp-server-yapi"],
+      "env": {
+        "YAPI_PROJECTS": "{\"project1\":{\"baseUrl\":\"https://yapi1.com\",\"token\":\"token1\"},\"project2\":{\"baseUrl\":\"https://yapi2.com\",\"token\":\"token2\"}}",
+        "YAPI_DEFAULT_PROJECT": "project1",
         "MCP_DEBUG_CONSOLE": "false"
       }
     }

@@ -1,7 +1,7 @@
 import { MCPTool, MCPInput } from "mcp-framework";
 import { yapiPost } from "../utils/yapi-request.js";
 import { INTERFACE_ENDPOINTS } from "../constants/yapi-endpoints.js";
-import { InterfaceSchema } from "../schemas/interface-schemas.js";
+import { InterfaceSchema, ProjectNameSchema } from "../schemas/interface-schemas.js";
 
 const AddCatSchema = InterfaceSchema.pick({
   name: true,
@@ -9,7 +9,7 @@ const AddCatSchema = InterfaceSchema.pick({
   desc: true,
 }).partial({
   desc: true,
-});
+}).merge(ProjectNameSchema);
 
 class AddCat extends MCPTool {
   name = "add_cat";
@@ -17,7 +17,8 @@ class AddCat extends MCPTool {
   schema = AddCatSchema;
 
   async execute(input: MCPInput<this>) {
-    return await yapiPost(INTERFACE_ENDPOINTS.ADD_CAT, input);
+    const { project_name, ...apiParams } = input;
+    return await yapiPost(INTERFACE_ENDPOINTS.ADD_CAT, apiParams, project_name);
   }
 }
 

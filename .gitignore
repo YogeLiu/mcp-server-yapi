@@ -7,3 +7,6 @@ logs
 .vscode
 AI_*
 .cursor/mcp.json
+
+# YAPI配置文件 (包含敏感token)
+yapi-projects.json

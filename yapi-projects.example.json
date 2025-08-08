@@ -1,0 +1,10 @@
+{
+  "test_project": {
+    "baseUrl": "https://test.example.com",
+    "token": "test_token_here"
+  },
+  "another_project": {
+    "baseUrl": "https://another.yapi.com",
+    "token": "another_project_token"
+  }
+}

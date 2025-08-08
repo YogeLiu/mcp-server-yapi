@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 import { logger } from "mcp-framework";
-import { getConfig } from "../config.js";
+import { getProjectConfig } from "../config.js";
 
 /**
  * YAPI API响应接口
@@ -70,9 +70,10 @@ async function yapiRequest<T = any>(
  */
 export async function yapiGet<T = any>(
   path: string,
-  params: Record<string, any> = {}
+  params: Record<string, any> = {},
+  projectName?: string
 ): Promise<YapiResponse<T>> {
-  const config = getConfig();
+  const config = getProjectConfig(projectName);
 
   // 添加token到查询参数
   const requestParams = {
@@ -104,9 +105,10 @@ export async function yapiGet<T = any>(
  */
 export async function yapiPost<T = any>(
   path: string,
-  data: Record<string, any> = {}
+  data: Record<string, any> = {},
+  projectName?: string
 ): Promise<YapiResponse<T>> {
-  const config = getConfig();
+  const config = getProjectConfig(projectName);
 
   // 添加token到请求数据
   const requestData = {

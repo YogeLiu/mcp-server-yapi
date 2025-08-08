@@ -1,18 +1,17 @@
 import { MCPTool, MCPInput } from "mcp-framework";
-import { z } from "zod";
 import { yapiGet } from "../utils/yapi-request.js";
 import { PROJECT_ENDPOINTS } from "../constants/yapi-endpoints.js";
+import { ProjectNameSchema } from "../schemas/interface-schemas.js";
 
-// Empty Schema with no parameters required
-const GetProjectSchema = z.object({});
+const GetProjectSchema = ProjectNameSchema;
 
 class GetProject extends MCPTool {
   name = "get_project";
   description = "Get project basic information";
   schema = GetProjectSchema;
 
-  async execute(_input: MCPInput<this>) {
-    return await yapiGet(PROJECT_ENDPOINTS.GET);
+  async execute(input: MCPInput<this>) {
+    return await yapiGet(PROJECT_ENDPOINTS.GET, {}, input.project_name);
   }
 }
 
